@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 function Cart({token}){
     const [prod, setProd] = React.useState([])
+    const [count, setCount] = React.useState(0)
+
     async function GettindProd(){
         const api_url = await fetch("http://127.0.0.1:8000/cart",{
             headers:{
@@ -66,7 +68,7 @@ function Cart({token}){
     })
     return(
         <div>
-            {result}
+            {prod.length == 0 ? <h4 className="pricing-header p-3 pb-md-4 mx-auto text-center">Корзина пуста</h4> : result}
             {prod.length>0 ? <Link type="button" class="col-6 btn btn-lg btn-primary mb-3" onClick={()=> addOrder()} to='/order'>Оформить зваказ</Link> : ''}
         </div>
     )
