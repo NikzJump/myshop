@@ -19,10 +19,10 @@ function Order({token}){
             <div className="col">
                 <div className="card mb-4 rounded-3 shadow-sm">
                     <div className="card-header py-3">
-                        <h4 className="my-0 fw-normal">{prod.id}</h4>
+                        <h3 className="my-0 fw-normal">Идентификатор заказа: <b>{prod.id}</b></h3>
                     </div>
                     <div className="card-body">
-                        <h1 className="card-title pricing-card-title">{prod.order_price}р.<small className="text-muted fw-light"> &times; {prods.length} шт.</small></h1>
+                        <h1 className="card-title pricing-card-title">{prod.order_price}р.</h1>
                         <p>{prod.description}</p>
                     </div>
                 </div>

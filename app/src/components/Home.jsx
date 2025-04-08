@@ -1,7 +1,10 @@
 import React from "react";
+import Cart from "./Cart";
 
-function Home({login,token}){
+function Home({login, token, setQuantity, quantity}){
     const [prod, setProd] = React.useState([])
+    const [cartProd, setCartProd] = React.useState([])
+
     async function GettindProd(){
         const api_url = await fetch("http://127.0.0.1:8000/prods")
         const data = await api_url.json()
@@ -10,7 +13,8 @@ function Home({login,token}){
     }
 
     async function addCart(index){
-        const api_url = await fetch(`http://127.0.0.1:8000/cart/${index}`,{
+        setQuantity(quantity + 1)
+        await fetch(`http://127.0.0.1:8000/cart/${index}`,{
             method: 'POST',
             headers:{
                 "Authorization":`Bearer ${token}`
@@ -19,12 +23,11 @@ function Home({login,token}){
     }
     
 
+    React.useEffect(() => {
+        GettindProd()}, [])
 
-    
 
-    React.useEffect(() => {GettindProd()}, [])
-
-    const result = prod.map((prod) => {
+    const result = prod.map((prod) => {        
         return(
             <div>
                 <div className="prod-cart">

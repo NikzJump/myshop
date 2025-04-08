@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-function Cart({token}){
+function Cart({token, setQuantity}){
     const [prod, setProd] = React.useState([])
     const [count, setCount] = React.useState(0)
 
@@ -28,12 +27,16 @@ function Cart({token}){
     }
 
     async function addOrder(){
-        const api_url = await fetch(`http://127.0.0.1:8000/order`,{
+        setQuantity(0)
+        fetch(`http://127.0.0.1:8000/order`,{
             method: 'POST',
             headers:{
                 "Authorization":`Bearer ${token}`
             }
         })
+
+        alert('Заказ оформлен')
+        GettindProd()
     }
 
     let res = []
@@ -69,7 +72,7 @@ function Cart({token}){
     return(
         <div>
             {prod.length == 0 ? <h4 className="pricing-header p-3 pb-md-4 mx-auto text-center">Корзина пуста</h4> : result}
-            {prod.length>0 ? <Link type="button" class="col-6 btn btn-lg btn-primary mb-3" onClick={()=> addOrder()} to='/order'>Оформить зваказ</Link> : ''}
+            {prod.length>0 ? <button type="button" class="col-6 btn btn-lg btn-primary mb-3" onClick={()=> addOrder()}>Оформить зваказ</button> : ''}
         </div>
     )
 }
