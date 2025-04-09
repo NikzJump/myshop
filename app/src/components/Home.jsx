@@ -1,7 +1,7 @@
 import React from "react";
 import Cart from "./Cart";
 
-function Home({login, token, setQuantity, quantity}){
+function Home({login, token}){
     const [prod, setProd] = React.useState([])
     const [cartProd, setCartProd] = React.useState([])
 
@@ -13,7 +13,6 @@ function Home({login, token, setQuantity, quantity}){
     }
 
     async function addCart(index){
-        setQuantity(quantity + 1)
         await fetch(`http://127.0.0.1:8000/cart/${index}`,{
             method: 'POST',
             headers:{

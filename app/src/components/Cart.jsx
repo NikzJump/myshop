@@ -1,6 +1,6 @@
 import React from "react";
 
-function Cart({token, setQuantity}){
+function Cart({token}){
     const [prod, setProd] = React.useState([])
     const [count, setCount] = React.useState(0)
 
@@ -27,8 +27,7 @@ function Cart({token, setQuantity}){
     }
 
     async function addOrder(){
-        setQuantity(0)
-        fetch(`http://127.0.0.1:8000/order`,{
+        fetch(`http://127.0.0.1:8000/orders`,{
             method: 'POST',
             headers:{
                 "Authorization":`Bearer ${token}`
