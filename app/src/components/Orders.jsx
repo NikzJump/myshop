@@ -18,27 +18,11 @@ function Orders({token}){
     }
     React.useEffect(() => {GettindProd()}, [])
 
-    async function delorder(index){
-        const api_url = await fetch(`http://127.0.0.1:8000/order/${index}`,{
-            method: 'DELETE',
-            headers:{
-                "Authorization":`Bearer ${token}`
-            }
-        })
-        GettindProd()
-    }
-
-    const orderProdInfo = (prod) =>{      
-        prod.map((data_prod) => {
-            
-        })
-    }
-
-
     const result = prods.map((prod) => {
         return(
             <div className="col">
-                <Order prod_name = {orderProdInfo.name} prod_descr = {orderProdInfo.description} prod_price = {orderProdInfo.price}/>
+                {console.log(prod)}
+                <Order prod = {prod} token={token}/>
             </div>
         )
     })

@@ -57,11 +57,8 @@ function Cart({token}){
                         <h4 className="my-0 fw-normal">{prod.name}</h4>
                     </div>
                     <div className="card-body">
-                        <h1 className="card-title pricing-card-title">{prod.price}р.<small className="text-muted fw-light"> &times; {prod.count}
-                            шт.</small></h1>
+                        <h1 className="card-title pricing-card-title">{prod.price}р.</h1>
                         <p>{prod.name}</p>
-                        <button type="button" className="btn btn-lg btn-info mb-3">+</button>
-                        <button type="button" className="btn btn-lg btn-warning mb-3">&minus;</button>
                         <button onClick={()=> delcart(prod.product_id)} type="button" className="btn btn-lg btn-outline-danger mb-3">delete</button>
                     </div>
                 </div>
