@@ -6,7 +6,7 @@ function Footer(){
             <footer className="footer">
                 <div className="row">
                     <div className="col-12 col-md">
-                        <small className="footer-text">&copy; MyShop 2017–2025</small>
+                        <small className="footer-text">&copy; MyShop 1904–2095</small>
                     </div>
                 </div>
             </footer>
