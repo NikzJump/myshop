@@ -10,7 +10,7 @@ function Reg({login, setLogin}){
     const data ={
         "email":email,
         "password":password,
-        "fio":fio
+        "nik":fio
 }
     async function postReg(event){
         event.preventDefault()
