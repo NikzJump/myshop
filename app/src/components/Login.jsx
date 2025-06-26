@@ -23,6 +23,7 @@ function Login({login, setLogin, token, setToken}){
         if(json.data){
             setLogin(true)
             setToken(json.data.user_token)
+            console.log(json.data.user_token);
             navigate('/')
         }        
         else{        
