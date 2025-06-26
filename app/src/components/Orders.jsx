@@ -21,7 +21,6 @@ function Orders({token}){
     const result = prods.map((prod) => {
         return(
             <div className="col">
-                {console.log(prod)}
                 <Order prod = {prod} token={token}/>
             </div>
         )

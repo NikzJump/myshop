@@ -16,7 +16,7 @@ function Order({prod, token}){
     const product_result = order_products.map((order_product) => {
         return(
             <div className="card-body">
-                <h4>{order_product.name}</h4>
+                <h4>{order_product.title}</h4>
                 <h6>{order_product.price} р.</h6>
                 <p>{order_product.description}</p>
             </div>

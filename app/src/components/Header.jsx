@@ -13,18 +13,18 @@ function Header({login, token, setLogin, setToken}){
         <div>
             <header>
                 <div className="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-                    <Link to="/" className="d-flex align-items-center text-dark text-decoration-none">
-                        <span className="fs-4">«MyShop»</span>
+                    <Link to="/" className="d-flex align-items-center text-dark text-decoration-none border-bottom">
+                        <h5 className="fs-4">Набор цветных костылей</h5>
                     </Link>
                                 
                     <nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
                     {login ?<div>
-                        <Link class="me-3 py-2 text-dark text-decoration-none" to="/orders">Мои заказы</Link>
-                        <Link class="me-3 py-2 text-dark text-decoration-none" to="/Cart">Корзина</Link>
-                        <Link class="me-3 py-2 text-dark text-decoration-none" to="/" onClick={()=>{logout()}}>Выход</Link>
+                        <Link className="me-3 py-2 text-dark text-decoration-none" to="/orders">Мои заказы</Link>
+                        <Link className="me-3 py-2 text-dark text-decoration-none" to="/Cart">Корзина</Link>
+                        <Link className="me-3 py-2 text-dark text-decoration-none" to="/" onClick={()=>{logout()}}>Выход</Link>
                         </div> :<div>
-                        <Link class="me-3 py-2 text-dark text-decoration-none" to="/Reg">Регистрация</Link>
-                        <Link class="me-3 py-2 text-dark text-decoration-none" to="/Login">Авторизация</Link>                  
+                        <Link className="me-3 py-2 text-dark text-decoration-none" to="/Reg">Регистрация</Link>
+                        <Link className="me-3 py-2 text-dark text-decoration-none" to="/Login">Авторизация</Link>                  
                     </div>}
                     </nav>
                 </div>

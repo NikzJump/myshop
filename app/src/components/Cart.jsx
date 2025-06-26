@@ -11,13 +11,12 @@ function Cart({token}){
             }
         })
         const data = await api_url.json()
-        console.log(data);
         setProd(data.data)
     }
     React.useEffect(() => {GettindProd()}, [])
 
-    async function delcart(index){
-        const api_url = await fetch(`http://127.0.0.1:8000/cart/${index}`,{
+    async function delcart(cat_id ,index){
+        const api_url = await fetch(`http://127.0.0.1:8000/cart/${cat_id}/${index}`,{
             method: 'DELETE',
             headers:{
                 "Authorization":`Bearer ${token}`
@@ -48,18 +47,19 @@ function Cart({token}){
             res.find(data => data.product_id === pro.product_id).count+=1
         }
     }
-
-    const result = res.map((prod) => {
+    
+    const result = prod.map((product) => {  
         return(
             <div className="col">
                 <div className="card mb-4 rounded-3 shadow-sm">
                     <div className="card-header py-3">
-                        <h4 className="my-0 fw-normal">{prod.name}</h4>
+                        <h4 className="my-0 fw-normal">{product.name}</h4>
                     </div>
                     <div className="card-body">
-                        <h1 className="card-title pricing-card-title">{prod.price}р.</h1>
-                        <p>{prod.name}</p>
-                        <button onClick={()=> delcart(prod.product_id)} type="button" className="btn btn-lg btn-outline-danger mb-3">delete</button>
+                        <h1 className="card-title pricing-card-title">{product.price}р.</h1>
+                        <h5>{product.title}</h5>
+                        <p>{product.description}</p>
+                        <button onClick={()=> delcart(product.category ,product.product_id)} type="button" className="btn btn-lg btn-outline-danger mb-3">delete</button>
                     </div>
                 </div>
             </div>
